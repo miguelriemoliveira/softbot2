@@ -1,0 +1,14 @@
+<launch>
+    <arg name="name" default="softbot"/>
+
+        <!-- Launch rviz, loading configuration file -->
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find softbot2_bringup)/config/visualize.rviz" required="false">
+            <remap from="/move_base_simple/goal" to="$(arg name)/move_base_simple/goal"/>
+            <rosparam command="load" file="$(find turtlebot3_manipulation_moveit_config)/config/kinematics.yaml"/>
+        </node>
+
+  <!-- <node name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false"
+	args="-d $(find softbot2_bringup)/launch/visualize.rviz" output="screen">
+    <rosparam command="load" file="$(find turtlebot3_manipulation_moveit_config)/config/kinematics.yaml"/>
+  </node> -->
+</launch>
