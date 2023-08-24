@@ -7,6 +7,10 @@
   <!-- Include OpenManipulator Transmission -->
   <xacro:include filename="$(find turtlebot3_manipulation_description)/urdf/open_manipulator_x.transmission.xacro"/>
 
+  <material name="light_grey">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+
   <!-- Link 1 -->
   <link name="link1">
     <visual>
@@ -14,7 +18,7 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <material name="light_grey"/>
     </visual>
 
     <collision>
@@ -49,7 +53,8 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!-- <material name="grey"/> -->
+      <material name="light_grey"/>
     </visual>
 
     <collision>
@@ -84,7 +89,8 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <material name="light_grey"/>
+      <!-- <material name="grey"/> -->
     </visual>
 
     <collision>
@@ -119,7 +125,8 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link4.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!-- <material name="grey"/> -->
+      <material name="light_grey"/>
     </visual>
 
     <collision>
@@ -154,7 +161,8 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link5.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!-- <material name="grey"/> -->
+      <material name="light_grey"/>
     </visual>
 
     <collision>
@@ -184,7 +192,8 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link_grip_l.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <material name="light_grey"/>
+      <!-- <material name="grey"/> -->
     </visual>
 
     <collision>
@@ -219,7 +228,8 @@
       <geometry>
         <mesh filename="package://turtlebot3_manipulation_description/meshes/chain_link_grip_r.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="grey"/>
+      <!-- <material name="grey"/> -->
+      <material name="light_grey"/>
     </visual>
 
     <collision>
@@ -260,9 +270,10 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.01 0.01 0.01" />
+        <box size="0.001 0.001 0.001" />
       </geometry>
-      <material name="red"/>
+      <!-- <material name="red"/> -->
+      <material name="light_grey"/>
      </visual>
 
     <inertial>
