@@ -86,8 +86,13 @@ To evaluate the calibration that was done, its need to do the annotation
 
 ##### Add to .bashrc:
 ```
+export TURTLEBOT3_MODEL="waffle"
 export ROS_BAGS="/home/<username>/bagfiles"
 export ATOM_DATASETS="/home/<username>/datasets"
 export GAZEBO_MODEL_PATH="`rospack find softbot_gazebo`/models:${GAZEBO_MODEL_PATH}"
 ```
+
+##### Download these repositories for you catkin workspace
+- https://github.com/ROBOTIS-GIT/turtlebot3_manipulation
+- https://github.com/ROBOTIS-GIT/turtlebot3_manipulation_simulations
 

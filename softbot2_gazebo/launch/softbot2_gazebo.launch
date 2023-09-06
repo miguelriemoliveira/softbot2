@@ -1,4 +1,5 @@
 <launch>
+  <arg name="world_name" default="$(find atom_worlds)/worlds/calibration_studio.world" />
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [waffle, waffle_pi]"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="false"/>
@@ -6,12 +7,19 @@
 
   <rosparam file="$(find turtlebot3_manipulation_gazebo)/config/gazebo_controller.yaml" command="load"/>
 
+  <node name="interactive_pattern" pkg="softbot_gazebo" type="interactive_pattern" output="screen" />
+
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gui" value="$(arg gui)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="extra_gazebo_args" value="--verbose"/>
+    <arg name="headless" value="false" />
+    <arg name="debug" value="false" />
   </include>
+
 
 
 </launch>
