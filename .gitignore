@@ -161,3 +161,4 @@ cython_debug/
 
 # VSCODE files
 .vscode/
+softbot2.code-workspace
