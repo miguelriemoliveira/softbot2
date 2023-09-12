@@ -74,11 +74,30 @@ Visualization Manager:
     Value: true
   - Class: rviz/Image
     Enabled: true
+    Image Topic: /body_camera/depth/image_raw/labeled2d
+    Max Value: 1
+    Median window: 5
+    Min Value: 0
+    Name: body_depth_camera-Labels-Image
+    Normalize Range: true
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  - Class: rviz/MarkerArray
+    Enabled: true
+    Marker Topic: /body_camera/depth/image_raw/labeled3d
+    Name: body_depth_camera-Labels-3D
+    Namespaces: {}
+    Queue Size: 10
+    Value: true
+  - Class: rviz/Image
+    Enabled: true
     Image Topic: /body_camera/rgb/image_raw/labeled2d
     Max Value: 1
     Median window: 5
     Min Value: 0
-    Name: body_camera-Labels-Image
+    Name: body_rgb_camera-Labels-Image
     Normalize Range: true
     Queue Size: 2
     Transport Hint: raw
@@ -86,11 +105,30 @@ Visualization Manager:
     Value: false
   - Class: rviz/Image
     Enabled: true
+    Image Topic: /hand_camera/depth/image_raw/labeled2d
+    Max Value: 1
+    Median window: 5
+    Min Value: 0
+    Name: hand_depth_camera-Labels-Image
+    Normalize Range: true
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  - Class: rviz/MarkerArray
+    Enabled: true
+    Marker Topic: /hand_camera/depth/image_raw/labeled3d
+    Name: hand_depth_camera-Labels-3D
+    Namespaces: {}
+    Queue Size: 10
+    Value: true
+  - Class: rviz/Image
+    Enabled: true
     Image Topic: /hand_camera/rgb/image_raw/labeled2d
     Max Value: 1
     Median window: 5
     Min Value: 0
-    Name: hand_camera-Labels-Image
+    Name: hand_rgb_camera-Labels-Image
     Normalize Range: true
     Queue Size: 2
     Transport Hint: raw

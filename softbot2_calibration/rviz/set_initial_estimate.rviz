@@ -86,11 +86,11 @@ Visualization Manager:
     Value: true
   - Class: rviz/Image
     Enabled: true
-    Image Topic: /body_camera/rgb/image_raw
+    Image Topic: /body_camera/depth/image_raw
     Max Value: 1
     Median window: 5
     Min Value: 0
-    Name: body_camera-Image
+    Name: body_depth_camera-Image
     Normalize Range: true
     Queue Size: 2
     Transport Hint: raw
@@ -99,8 +99,8 @@ Visualization Manager:
   - Class: rviz/Camera
     Enabled: true
     Image Rendering: background and overlay
-    Image Topic: /body_camera/rgb/image_raw
-    Name: body_camera-Camera
+    Image Topic: /body_camera/depth/image_raw
+    Name: body_depth_camera-Camera
     Overlay Alpha: 0.5
     Queue Size: 2
     Transport Hint: raw
@@ -111,8 +111,72 @@ Visualization Manager:
     Zoom Factor: 1
   - Class: rviz/MarkerArray
     Enabled: true
-    Marker Topic: body_camera/frustum
-    Name: body_camera-Frustum
+    Marker Topic: body_depth_camera/frustum
+    Name: body_depth_camera-Frustum
+    Namespaces: {}
+    Queue Size: 10
+    Value: true
+  - Class: rviz/Image
+    Enabled: true
+    Image Topic: /body_camera/rgb/image_raw
+    Max Value: 1
+    Median window: 5
+    Min Value: 0
+    Name: body_rgb_camera-Image
+    Normalize Range: true
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  - Class: rviz/Camera
+    Enabled: true
+    Image Rendering: background and overlay
+    Image Topic: /body_camera/rgb/image_raw
+    Name: body_rgb_camera-Camera
+    Overlay Alpha: 0.5
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+    Visibility:
+      Value: true
+    Zoom Factor: 1
+  - Class: rviz/MarkerArray
+    Enabled: true
+    Marker Topic: body_rgb_camera/frustum
+    Name: body_rgb_camera-Frustum
+    Namespaces: {}
+    Queue Size: 10
+    Value: true
+  - Class: rviz/Image
+    Enabled: true
+    Image Topic: /hand_camera/depth/image_raw
+    Max Value: 1
+    Median window: 5
+    Min Value: 0
+    Name: hand_depth_camera-Image
+    Normalize Range: true
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  - Class: rviz/Camera
+    Enabled: true
+    Image Rendering: background and overlay
+    Image Topic: /hand_camera/depth/image_raw
+    Name: hand_depth_camera-Camera
+    Overlay Alpha: 0.5
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+    Visibility:
+      Value: true
+    Zoom Factor: 1
+  - Class: rviz/MarkerArray
+    Enabled: true
+    Marker Topic: hand_depth_camera/frustum
+    Name: hand_depth_camera-Frustum
     Namespaces: {}
     Queue Size: 10
     Value: true
@@ -122,7 +186,7 @@ Visualization Manager:
     Max Value: 1
     Median window: 5
     Min Value: 0
-    Name: hand_camera-Image
+    Name: hand_rgb_camera-Image
     Normalize Range: true
     Queue Size: 2
     Transport Hint: raw
@@ -132,7 +196,7 @@ Visualization Manager:
     Enabled: true
     Image Rendering: background and overlay
     Image Topic: /hand_camera/rgb/image_raw
-    Name: hand_camera-Camera
+    Name: hand_rgb_camera-Camera
     Overlay Alpha: 0.5
     Queue Size: 2
     Transport Hint: raw
@@ -143,8 +207,8 @@ Visualization Manager:
     Zoom Factor: 1
   - Class: rviz/MarkerArray
     Enabled: true
-    Marker Topic: hand_camera/frustum
-    Name: hand_camera-Frustum
+    Marker Topic: hand_rgb_camera/frustum
+    Name: hand_rgb_camera-Frustum
     Namespaces: {}
     Queue Size: 10
     Value: true

@@ -11,8 +11,12 @@
         /joint_states
         /body_camera/rgb/image_raw/compressed
         /body_camera/rgb/camera_info
+        /body_camera/depth/image_raw
+        /body_camera/depth/camera_info
         /hand_camera/rgb/image_raw/compressed
         /hand_camera/rgb/camera_info
+        /hand_camera/depth/image_raw
+        /hand_camera/depth/camera_info
         /lidar3d/points
         -o $(arg bag)">
         </node>

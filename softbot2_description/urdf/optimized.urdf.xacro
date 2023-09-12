@@ -368,7 +368,7 @@
     </visual>
   </link>
   <joint name="platform_support_leg1_link_to_lidar3d_plate_link" type="fixed">
-    <origin xyz="0.04989383787905437 -0.04745463592943482 0.006077758976649152" rpy="0.00747840856422311 -0.0017271778632374619 0.00010113847121494741"/>
+    <origin xyz="0.05 -0.05 0.0" rpy="0.0 0.0 0.0"/>
     <parent link="platform_support_leg1_link"/>
     <child link="lidar3d_plate_link"/>
   </joint>
@@ -461,7 +461,7 @@
   </gazebo>
   <link name="body_camera_support_link"/>
   <joint name="platform_support_leg3_link_to_body_camera_support_link" type="fixed">
-    <origin xyz="0.01902912106649107 -0.027256742016464615 -0.11105033901209478" rpy="0.009661329113470226 -0.3494292136553693 0.050983171165031725"/>
+    <origin xyz="0.02 -0.05 -0.13" rpy="0.01 -0.35 0.05"/>
     <parent link="platform_support_leg3_link"/>
     <child link="body_camera_support_link"/>
   </joint>
@@ -493,7 +493,7 @@
     <selfCollide>false</selfCollide>
   </gazebo>
   <joint name="body_camera_rgb_joint" type="fixed">
-    <origin xyz="0.0 -0.045 0.0" rpy="0.0 0.0 0.0"/>
+    <origin xyz="0.00012269771519343576 -0.044719692006212605 -0.003362822947788794" rpy="0.0051473990343029645 0.0036312250447137736 -0.00042017158966324895"/>
     <parent link="body_camera_link"/>
     <child link="body_camera_rgb_frame"/>
   </joint>
@@ -524,24 +524,24 @@
         <horizontal_fov>1.0471975511965976</horizontal_fov>
         <image>
           <format>B8G8R8</format>
-          <width>1280</width>
-          <height>720</height>
+          <width>640</width>
+          <height>480</height>
         </image>
         <clip>
           <near>0.10</near>
           <far>8.0</far>
         </clip>
       </camera>
-      <plugin filename="libgazebo_ros_openni_kinect.so" name="body_camera_camera_controller">
+      <plugin filename="libgazebo_ros_openni_kinect.so" name="body_camera_depth_camera_controller">
         <cameraName>body_camera</cameraName>
         <alwaysOn>true</alwaysOn>
-        <updateRate>0</updateRate>
-        <imageTopicName>rgb/image_raw</imageTopicName>
+        <updateRate>10.0</updateRate>
+        <imageTopicName>null</imageTopicName>
+        <cameraInfoTopicName>null/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_raw</depthImageTopicName>
         <pointCloudTopicName>depth/points</pointCloudTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
         <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
-        <frameName>body_camera_rgb_optical_frame</frameName>
+        <frameName>body_camera_depth_optical_frame</frameName>
         <baseline>0.1</baseline>
         <distortion_k1>0.0</distortion_k1>
         <distortion_k2>0.0</distortion_k2>
@@ -552,9 +552,40 @@
       </plugin>
     </sensor>
   </gazebo>
+  <gazebo reference="body_camera_rgb_frame">
+    <sensor name="camera" type="camera">
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>1.0471975511965976</horizontal_fov>
+        <image>
+          <format>B8G8R8</format>
+          <width>1200</width>
+          <height>800</height>
+        </image>
+        <clip>
+          <near>0.10</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="body_camera_rgb_camera_controller">
+        <cameraName>body_camera</cameraName>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0</updateRate>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <frameName>body_camera_rgb_optical_frame</frameName>
+        <baseline>0.0</baseline>
+        <distortion_k1>0.0</distortion_k1>
+        <distortion_k2>0.0</distortion_k2>
+        <distortion_k3>0.0</distortion_k3>
+        <distortion_t1>0.0</distortion_t1>
+        <distortion_t2>0.0</distortion_t2>
+      </plugin>
+    </sensor>
+  </gazebo>
   <link name="hand_camera_support_link"/>
   <joint name="end_effector_link_to_hand_camera_support_link" type="fixed">
-    <origin xyz="-0.08027523351269401 0.024209437280304467 0.03859164929320406" rpy="4.135375895683818e-05 0.0002481616863956035 0.0009620810827537254"/>
+    <origin xyz="-0.08 0.0 0.04" rpy="0.0 0.0 0.0"/>
     <parent link="end_effector_link"/>
     <child link="hand_camera_support_link"/>
   </joint>
@@ -617,24 +648,24 @@
         <horizontal_fov>1.0471975511965976</horizontal_fov>
         <image>
           <format>B8G8R8</format>
-          <width>1280</width>
-          <height>720</height>
+          <width>640</width>
+          <height>480</height>
         </image>
         <clip>
           <near>0.10</near>
           <far>8.0</far>
         </clip>
       </camera>
-      <plugin filename="libgazebo_ros_openni_kinect.so" name="hand_camera_camera_controller">
+      <plugin filename="libgazebo_ros_openni_kinect.so" name="hand_camera_depth_camera_controller">
         <cameraName>hand_camera</cameraName>
         <alwaysOn>true</alwaysOn>
-        <updateRate>0</updateRate>
-        <imageTopicName>rgb/image_raw</imageTopicName>
+        <updateRate>10.0</updateRate>
+        <imageTopicName>null</imageTopicName>
+        <cameraInfoTopicName>null/camera_info</cameraInfoTopicName>
         <depthImageTopicName>depth/image_raw</depthImageTopicName>
         <pointCloudTopicName>depth/points</pointCloudTopicName>
-        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
         <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
-        <frameName>hand_camera_rgb_optical_frame</frameName>
+        <frameName>hand_camera_depth_optical_frame</frameName>
         <baseline>0.1</baseline>
         <distortion_k1>0.0</distortion_k1>
         <distortion_k2>0.0</distortion_k2>
@@ -642,6 +673,37 @@
         <distortion_t1>0.0</distortion_t1>
         <distortion_t2>0.0</distortion_t2>
         <pointCloudCutoff>0.4</pointCloudCutoff>
+      </plugin>
+    </sensor>
+  </gazebo>
+  <gazebo reference="hand_camera_rgb_frame">
+    <sensor name="camera" type="camera">
+      <update_rate>30.0</update_rate>
+      <camera>
+        <horizontal_fov>1.0471975511965976</horizontal_fov>
+        <image>
+          <format>B8G8R8</format>
+          <width>1200</width>
+          <height>800</height>
+        </image>
+        <clip>
+          <near>0.10</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="hand_camera_rgb_camera_controller">
+        <cameraName>hand_camera</cameraName>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0</updateRate>
+        <imageTopicName>rgb/image_raw</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <frameName>hand_camera_rgb_optical_frame</frameName>
+        <baseline>0.0</baseline>
+        <distortion_k1>0.0</distortion_k1>
+        <distortion_k2>0.0</distortion_k2>
+        <distortion_k3>0.0</distortion_k3>
+        <distortion_t1>0.0</distortion_t1>
+        <distortion_t2>0.0</distortion_t2>
       </plugin>
     </sensor>
   </gazebo>
@@ -924,7 +986,7 @@
     </visual>
   </link>
   <joint name="base_fixed" type="fixed">
-    <origin xyz="-0.09257785788610248 0.0807880375990526 0.1106456350194087" rpy="7.812078783845316e-05 0.00010315472222668298 -0.0011768719594356426"/>
+    <origin xyz="-0.09199999999999665 0.08 0.091" rpy="0.0 -0.0 0.0"/>
     <parent link="base_link"/>
     <child link="link1"/>
   </joint>

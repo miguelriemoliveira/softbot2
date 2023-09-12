@@ -14,15 +14,15 @@
   <xacro:property name="color" value="$(arg color)"/>
 
   <!-- Include other files-->
-  <xacro:include filename="$(find softbot_description)/urdf/properties.xacro"/>
-  <xacro:include filename="$(find softbot_description)/urdf/VLP-16.urdf.xacro"/>
-  <xacro:include filename="$(find softbot_description)/urdf/VLP-16_blue.urdf.xacro"/>
-  <xacro:include filename="$(find softbot_description)/urdf/astra.urdf.xacro" />
-  <xacro:include filename="$(find softbot_description)/urdf/astra_red.urdf.xacro" />
-  <xacro:include filename="$(find softbot_description)/urdf/astra_green.urdf.xacro" />
+  <xacro:include filename="$(find softbot2_description)/urdf/properties.xacro"/>
+  <xacro:include filename="$(find softbot2_description)/urdf/VLP-16.urdf.xacro"/>
+  <xacro:include filename="$(find softbot2_description)/urdf/VLP-16_blue.urdf.xacro"/>
+  <xacro:include filename="$(find softbot2_description)/urdf/astra.urdf.xacro" />
+  <xacro:include filename="$(find softbot2_description)/urdf/astra_red.urdf.xacro" />
+  <xacro:include filename="$(find softbot2_description)/urdf/astra_green.urdf.xacro" />
 
 
-  <xacro:include filename="$(find softbot_description)/urdf/softbot.gazebo.macro.xacro"/>
+  <xacro:include filename="$(find softbot2_description)/urdf/softbot.gazebo.macro.xacro"/>
   <xacro:gazebo_macro color="$(arg color)" laser_visual="false" camera_visual="false" imu_visual="true"/>
 
   <!-- Links and joints-->
