@@ -33,48 +33,128 @@
 
     <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
     <!-- Evaluation -->
+    <node type="depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="body_rgb_camera_to_body_depth_camera_evaluation"
+        args="-cs body_rgb_camera -ds body_depth_camera -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_body_rgb_camera_to_body_depth_camera_evaluation"
+        args="-cs body_rgb_camera -ds body_depth_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
     <node type="rgb_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="rgb_to_rgb_body_rgb_camera_to_hand_rgb_camera_evaluation"
+        name="body_rgb_camera_to_hand_rgb_camera_evaluation"
         args="-ss body_rgb_camera -st hand_rgb_camera -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
     <node type="inter_collection_rgb_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_rgb_to_rgb_inter_collection_body_rgb_camera_to_hand_rgb_camera_evaluation"
+        name="inter_collection_body_rgb_camera_to_hand_rgb_camera_evaluation"
         args="-ss body_rgb_camera -st hand_rgb_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
+    <node type="depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="body_rgb_camera_to_hand_depth_camera_evaluation"
+        args="-cs body_rgb_camera -ds hand_depth_camera -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_body_rgb_camera_to_hand_depth_camera_evaluation"
+        args="-cs body_rgb_camera -ds hand_depth_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
     <node type="lidar_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="lidar_to_rgb_body_rgb_camera_to_lidar3d_evaluation"
+        name="body_rgb_camera_to_lidar3d_evaluation"
         args="-cs body_rgb_camera -rs lidar3d -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
     <node type="inter_collection_lidar_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_lidar_to_rgb_inter_collection_body_rgb_camera_to_lidar3d_evaluation"
+        name="inter_collection_body_rgb_camera_to_lidar3d_evaluation"
         args="-cs body_rgb_camera -rs lidar3d -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
+    <node type="depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="body_depth_camera_to_hand_rgb_camera_evaluation"
+        args="-ds body_depth_camera -cs hand_rgb_camera -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_body_depth_camera_to_hand_rgb_camera_evaluation"
+        args="-ds body_depth_camera -cs hand_rgb_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="depth_to_depth_evaluation" pkg="atom_evaluation" 
+        name="body_depth_camera_to_hand_depth_camera_evaluation"
+        args="-ss body_depth_camera -st hand_depth_camera -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_depth_to_depth_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_body_depth_camera_to_hand_depth_camera_evaluation"
+        args="-ss body_depth_camera -st hand_depth_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="lidar_to_depth_evaluation" pkg="atom_evaluation" 
+        name="body_depth_camera_to_lidar3d_evaluation"
+        args="-ds body_depth_camera -rs lidar3d -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_lidar_to_depth_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_body_depth_camera_to_lidar3d_evaluation"
+        args="-ds body_depth_camera -rs lidar3d -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="hand_rgb_camera_to_hand_depth_camera_evaluation"
+        args="-cs hand_rgb_camera -ds hand_depth_camera -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_depth_to_rgb_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_hand_rgb_camera_to_hand_depth_camera_evaluation"
+        args="-cs hand_rgb_camera -ds hand_depth_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
     <node type="lidar_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="lidar_to_rgb_hand_rgb_camera_to_lidar3d_evaluation"
+        name="hand_rgb_camera_to_lidar3d_evaluation"
         args="-cs hand_rgb_camera -rs lidar3d -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
     <node type="inter_collection_lidar_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_lidar_to_rgb_inter_collection_hand_rgb_camera_to_lidar3d_evaluation"
+        name="inter_collection_hand_rgb_camera_to_lidar3d_evaluation"
         args="-cs hand_rgb_camera -rs lidar3d -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
+    <node type="lidar_to_depth_evaluation" pkg="atom_evaluation" 
+        name="hand_depth_camera_to_lidar3d_evaluation"
+        args="-ds hand_depth_camera -rs lidar3d -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
+    <node type="inter_collection_lidar_to_depth_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_hand_depth_camera_to_lidar3d_evaluation"
+        args="-ds hand_depth_camera -rs lidar3d -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
     <node type="inter_collection_rgb_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_rgb_to_rgb_body_rgb_camera_to_body_rgb_camera_evaluation"
+        name="inter_collection_body_rgb_camera_to_body_rgb_camera_evaluation"
         args="-ss body_rgb_camera -st body_rgb_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
+    <node type="inter_collection_depth_to_depth_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_body_depth_camera_to_body_depth_camera_evaluation"
+        args="-ss body_depth_camera -st body_depth_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
     <node type="inter_collection_rgb_to_rgb_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_rgb_to_rgb_hand_rgb_camera_to_hand_rgb_camera_evaluation"
+        name="inter_collection_hand_rgb_camera_to_hand_rgb_camera_evaluation"
         args="-ss hand_rgb_camera -st hand_rgb_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
+    <node type="inter_collection_depth_to_depth_evaluation" pkg="atom_evaluation" 
+        name="inter_collection_hand_depth_camera_to_hand_depth_camera_evaluation"
+        args="-ss hand_depth_camera -st hand_depth_camera -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
+        output="screen"/>
+
     <node type="inter_collection_lidar_to_lidar_evaluation" pkg="atom_evaluation" 
-        name="inter_collection_lidar_to_lidar_lidar3d_to_lidar3d_evaluation"
+        name="inter_collection_lidar3d_to_lidar3d_evaluation"
         args="-ss lidar3d -st lidar3d -wf world -train_json $(arg train_json) -test_json $(arg test_json) -csf '$(arg csf)' -sfr" 
         output="screen"/>
 
